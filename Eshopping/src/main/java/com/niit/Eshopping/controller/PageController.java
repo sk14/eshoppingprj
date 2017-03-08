@@ -47,6 +47,24 @@ public class PageController {
 		return mv;
 		
 	}
+	@RequestMapping(value={"/login"})
+	public ModelAndView login()
+	{
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("title", "Login");
+		mv.addObject("userClickLogin", true);
+		return mv;
+		
+	}
+	@RequestMapping(value={"/register"})
+	public ModelAndView register()
+	{
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("title", "Register");
+		mv.addObject("userClickRegister", true);
+		return mv;
+		
+	}
 	
 	//methods to load all the product based on the category
 	

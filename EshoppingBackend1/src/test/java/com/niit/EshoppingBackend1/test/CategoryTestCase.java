@@ -27,17 +27,79 @@ public class CategoryTestCase {
 		categoryDAO = (CategoryDAO)context.getBean("categoryDAO");
 	}
 	
-	@Test
+	/*@Test
 	public void testAddCategory()
 	{
 		category= new Category();
-		category.setName("Laptop");
-		category.setDescription(" Laptop with high end features");
-		category.setImageURL("l123.jpg");
+		category.setName("Mobile");
+		category.setDescription(" Smart phones with high end features");
+		category.setImageURL("m11.jpg");
 		
         assertEquals("Sccussfully added a category inside the table",true,categoryDAO.add(category));
         
 		
+	}*/
+	
+	/*@Test
+	public void testGetCategory()
+	{
+		category= categoryDAO.get(3);
+		assertEquals("Sccussfully fetched a single category from the table","Laptop",category.getName());
+	}*/
+	
+	/*@Test
+	public void testUpdateCategory()
+	{
+		category= categoryDAO.get(3);
+	    category.setName("Lap");
+		assertEquals("Sccussfully updated single category into the table",true,categoryDAO.update(category));
+	}*/
+	
+	/*@Test
+	public void testDeleteCategory()
+	{
+		category= categoryDAO.get(2);
+	   
+		assertEquals("Sccussfully deleted single category from the table",true,categoryDAO.delete(category));
+	}*/
+	
+	/*@Test
+	public void testListCategory()
+	{
+		 	   
+		assertEquals("Sccussfully fetched the list of category from the table",3,categoryDAO.list().size());
+	}*/
+	
+	@Test
+	public void testCRUDCategory()
+	{
+		//add operation
+		category= new Category();
+		category.setName("Mobile");
+		category.setDescription(" Smart phones with high end features");
+		category.setImageURL("Cim1.jpg");
+		
+        assertEquals("Sccussfully added a category inside the table",true,categoryDAO.add(category));
+        
+        category= new Category();
+		category.setName("Television");
+		category.setDescription(" Television with high end features");
+		category.setImageURL("Cim2.jpg");
+		
+        assertEquals("Sccussfully added a category inside the table",true,categoryDAO.add(category));
+        //fecting and updating the category
+        category= categoryDAO.get(2);
+	    category.setName("TV");
+		assertEquals("Sccussfully updated single category into the table",true,categoryDAO.update(category));
+		
+		//delete the category
+		category= categoryDAO.get(2);
+		   
+		assertEquals("Sccussfully deleted single category from the table",true,categoryDAO.delete(category));
+		
+		// fetching the list of categories
+		assertEquals("Sccussfully fetched the list of category from the table",1,categoryDAO.list().size());
+        
 	}
 	
 	

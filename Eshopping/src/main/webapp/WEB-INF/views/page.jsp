@@ -3,6 +3,7 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
 <spring:url var="css" value="/resources/css" />
@@ -36,6 +37,17 @@
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
+<link rel="stylesheet" href="${css}/dataTables.bootstrap.css" />
+<link rel="stylesheet" href="${css}/jquery.dataTables.min.css" />
+
+<!-- including JS  -->
+
+<script src="${js}/showdata.js"></script>
+
+<script src="${js}/dataTables.bootstrap.js"></script>
+<script src="${js}/jquery.dataTables.js"></script>
+<script src="${js}/jquery.min.js"></script>
+
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -76,6 +88,21 @@
 			<c:if test="${userClickAllProducts == true or userClickCategoryProducts==true}">
 
 				<%@include file="listProducts.jsp"%>
+			</c:if>
+			<!-- Loading only when user clicks Admin -->
+			<c:if test="${userClickAdmin == true or userClickAdmin==true}">
+
+				<%@include file="adminProduct.jsp"%>
+			</c:if>
+			<!-- Loading only when user clicks Admin -->
+			<c:if test="${userClickLogin == true or userClickLogin==true}">
+
+				<%@include file="login.jsp"%>
+			</c:if>
+			<!-- Loading only when user clicks Admin -->
+			<c:if test="${userClickRegister == true or userClickRegister==true}">
+
+				<%@include file="register.jsp"%>
 			</c:if>
 
 		</div>
