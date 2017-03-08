@@ -98,7 +98,7 @@ public class CategoryTestCase {
 		assertEquals("Sccussfully deleted single category from the table",true,categoryDAO.delete(category));
 		
 		// fetching the list of categories
-		assertEquals("Sccussfully fetched the list of category from the table",1,categoryDAO.list().size());
+		assertEquals("Sccussfully fetched the list of category from the table",6,categoryDAO.list().size());
         
 	}
 	

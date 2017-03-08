@@ -12,16 +12,15 @@ public class User {
 	 * 
 	 */
     @Id
+    private int userid;
 	private String username;
 	private String password;
 	private String name;
 	private String email;
 	private String phone;
 	private String role;
-	
 	@Column(name="is_active")
 	private boolean active=true;
-	//private Cart cart;
 	
 	public boolean isActive() {
 		return active;
@@ -29,6 +28,13 @@ public class User {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+	
 	public String getUsername() {
 		return username;
 	}

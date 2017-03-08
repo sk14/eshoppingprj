@@ -65,22 +65,6 @@
 		</div>
 
 		<div class="row">
-			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="country">Country</label>
-				<div class="col-md-7">
-					<form:select path="country" id="country" class="form-control input-sm">
-				        <form:option value="">Select Country</form:option>
-			    	    <form:options items="${countries}" />
-				    </form:select>
-					<div class="has-error">
-						<form:errors path="country" class="help-inline"/>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="row">
 			<div class="form-actions floatRight">
 				<input type="submit" value="Register" class="btn btn-primary btn-sm">
 				</div>

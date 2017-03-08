@@ -29,6 +29,12 @@
         window.menu='${title}';
     </script>
 
+<script src="${js}/jquery.min.js"></script>
+<script src="${js}/bootstrap.min.js"></script>
+<script src="${js}/jquery.dataTables.js"></script>
+<script src="${js}/dataTables.bootstrap.js"></script>
+<script src="${js}/showdata.js"></script>
+
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
@@ -41,12 +47,6 @@
 <link rel="stylesheet" href="${css}/jquery.dataTables.min.css" />
 
 <!-- including JS  -->
-
-<script src="${js}/showdata.js"></script>
-
-<script src="${js}/dataTables.bootstrap.js"></script>
-<script src="${js}/jquery.dataTables.js"></script>
-<script src="${js}/jquery.min.js"></script>
 
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -90,17 +90,17 @@
 				<%@include file="listProducts.jsp"%>
 			</c:if>
 			<!-- Loading only when user clicks Admin -->
-			<c:if test="${userClickAdmin == true or userClickAdmin==true}">
+			<c:if test="${userClickAdmin == true }">
 
 				<%@include file="adminProduct.jsp"%>
 			</c:if>
 			<!-- Loading only when user clicks Admin -->
-			<c:if test="${userClickLogin == true or userClickLogin==true}">
+			<c:if test="${userClickLogin == true}">
 
 				<%@include file="login.jsp"%>
 			</c:if>
 			<!-- Loading only when user clicks Admin -->
-			<c:if test="${userClickRegister == true or userClickRegister==true}">
+			<c:if test="${userClickRegister == true}">
 
 				<%@include file="register.jsp"%>
 			</c:if>

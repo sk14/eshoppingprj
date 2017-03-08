@@ -14,7 +14,7 @@
 					<td><input type="password" name="pass" placeholder="Password"></td>
 				</tr>
 			</table>
-			<a href="index"> <input type="submit" value="login"></a> <a
-				href="registerHere"> <input type="button" value="Register"></a>
+			<a href="index"> <input type="submit" value="login"></a>
+			 <a href="registerHere"> <input type="button" value="Register"></a>
 		</form>
 	</div>

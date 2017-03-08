@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.EshoppingBackend1.dao.UserDAO;
-import com.niit.EshoppingBackend1.dto.Category;
+
 import com.niit.EshoppingBackend1.dto.User;
 
 

@@ -3,7 +3,7 @@
      
     <h1>Category details </h1>
      
-    <form:form action="/Eshopping/admin/add/category" method="POST" modelAttribute="category" class="form-horizontal">
+    <form:form action="${contextRoot}/add/category" method="POST" modelAttribute="category" class="form-horizontal">
  
         <div class="row">
             <div class="form-group col-md-12">

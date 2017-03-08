@@ -3,34 +3,39 @@
 	           .DataTable(
 					    {
 						ajax : {
-							url : '/Eshopping/products/all/pro',
+							url : '/Eshopping/admin/all/category',
 							dataSrc : ''
 						},
 
 						columns : [
 
-								
 								{
 									data : 'name'
 								},
 								{
 									data : 'description'
 								},
+								/*
+								 * { data : 'price' }
+								 */
 								{
-									data : 'price'
-								},
-								{
-									data : 'imageUrl',
+									data : null,
 									mRender : function(data, type, row) {
-										return '<img src="SamplePrj/assets/images/prdimg'+data+'.jpg" height="170px" width="190px">';
+										return '<img src="Eshopping/assets/images'
+												+ row.id
+												+ '.jpg" height="170px" width="190px">';
 									}
 								},
-								{
-									data : 'id',
-									mRender : function(data, type,row) {
-										return '<a href="prdview/'+data+'" role="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="">view</a><button type="submit" class="btn btn-danger btn-lg">Add to Cart</button>';
+								/*{
+									data : null,
+									mRender : function(data, type, row) {
+										return "<a class='btn btn-primary' href='/Eshopping/admin/show/category/"
+												+ data.id
+												+ "'>View Item</a> &nbsp;<a class='btn btn-primary' href='/Eshopping/admin/show/category/"
+												+ data.id
+												+ "'>Update</a> &nbsp;<a class='btn btn-primary' href='/Eshopping/admin/show/category/"
+												+ data.id + "'>delete</a>";
 									}
-								}	
-						]
+								}*/ ]
 					});
    });

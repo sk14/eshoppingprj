@@ -21,7 +21,7 @@
 				<li id="listProducts"><a
 					href="${contextRoot}/show/all/products">View Products</a></li>
 				<li id="adminProduct"><a
-					href="${contextRoot}/admin/add/category">Admin</a></li>
+					href="${contextRoot}/admin">Admin</a></li>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="${contextRoot}/register" data-toggle="" ><span
 							class="glyphicon glyphicon-user"></span> Sign Up</a></li>

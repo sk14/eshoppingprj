@@ -1,10 +1,16 @@
 package com.niit.EshoppingBackend1.dto;
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 
 
@@ -17,14 +23,28 @@ public class Category {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int id;
-
+@NotNull(message="name required")
+@Size(min=1,max=50)
 private String name;
-
+@NotNull(message="description of product is required")
+@Size(min=1,max=80)
 private String description;
 
 @Column(name="image_url")
 private String imageURL;
 
+/*
+@Transient
+private MultipartFile files;
+
+
+
+public MultipartFile getFiles() {
+	return files;
+}
+public void setFiles(MultipartFile files) {
+	this.files = files;
+}*/
 @Column(name="is_active")
 private boolean active=true;
 
