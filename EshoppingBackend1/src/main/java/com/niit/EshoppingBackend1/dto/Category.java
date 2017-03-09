@@ -29,7 +29,6 @@ private String name;
 @NotNull(message="description of product is required")
 @Size(min=1,max=80)
 private String description;
-
 @Column(name="image_url")
 private String imageURL;
 

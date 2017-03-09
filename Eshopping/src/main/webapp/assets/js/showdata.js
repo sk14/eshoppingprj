@@ -15,18 +15,16 @@
 								{
 									data : 'description'
 								},
-								/*
-								 * { data : 'price' }
-								 */
+								
 								{
 									data : null,
 									mRender : function(data, type, row) {
 										return '<img src="Eshopping/assets/images'
-												+ row.id
+												+ data
 												+ '.jpg" height="170px" width="190px">';
 									}
 								},
-								/*{
+								{
 									data : null,
 									mRender : function(data, type, row) {
 										return "<a class='btn btn-primary' href='/Eshopping/admin/show/category/"
@@ -36,6 +34,6 @@
 												+ "'>Update</a> &nbsp;<a class='btn btn-primary' href='/Eshopping/admin/show/category/"
 												+ data.id + "'>delete</a>";
 									}
-								}*/ ]
+								} ]
 					});
    });

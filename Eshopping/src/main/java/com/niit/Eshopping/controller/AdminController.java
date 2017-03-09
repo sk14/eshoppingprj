@@ -33,7 +33,7 @@ public class AdminController {
 	// @Autowired
 	// private HttpServletRequest request;
 
-	// admin path will be called
+	// admin page will be loaded
 	@RequestMapping(method = RequestMethod.GET)
 	public String newCategory(ModelMap model) {
 		Category category = new Category();
@@ -43,14 +43,14 @@ public class AdminController {
 
 	}
 
-	// category list
+	// To populate the category list
 	@GetMapping(value = { "/all/category" })
 	@ResponseBody
 	public List<Category> showAll() {
 		return categoryDAO.list();
 	}
 
-	// add a category
+	// To add a category
 	@RequestMapping(value = "/add/category", method = RequestMethod.POST)
 	public String saveCategory(@Valid Category category, BindingResult result, ModelMap model) {
 
@@ -69,7 +69,7 @@ public class AdminController {
 					model.addAttribute("success", "Category update");
 				}
 			}
-			return "redirect:/adminProduct";
+			return "redirect:/admin";
 
 		}
 	}
@@ -91,7 +91,7 @@ public class AdminController {
 		// this.categoryDAO.delete(id);
 		if (categoryDAO.delete(category)) {
 		}
-		return "redirect:/adminProduct";
+		return "redirect:/admin";
 	}
 
 	// helper to upload the file

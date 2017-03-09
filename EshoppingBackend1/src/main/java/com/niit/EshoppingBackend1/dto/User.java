@@ -2,7 +2,11 @@ package com.niit.EshoppingBackend1.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -11,11 +15,20 @@ public class User {
 	 * private fields;
 	 * 
 	 */
-    @Id
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userid;
+	@NotNull(message="UserName required")
+	@Size(min=1,max=50)
 	private String username;
+	@NotNull(message="Password is required")
+	@Size(min=4,max=12)
 	private String password;
+	@NotNull(message="Name is required")
+	@Size(min=4,max=12)
 	private String name;
+	@NotNull(message="Email is required")
+	@Size(min=4,max=12)
 	private String email;
 	private String phone;
 	private String role;

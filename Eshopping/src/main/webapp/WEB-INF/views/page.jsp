@@ -26,20 +26,20 @@
 <title>E-Shopping Zone- ${title}</title>
 
 <script>
-        window.menu='${title}';
-    </script>
+	window.menu = '${title}';
+</script>
 
-<script src="${js}/jquery.min.js"></script>
+<script src="${js}/jquery.js"></script>
 <script src="${js}/bootstrap.min.js"></script>
 <script src="${js}/jquery.dataTables.js"></script>
-<script src="${js}/dataTables.bootstrap.js"></script>
-<script src="${js}/showdata.js"></script>
+<%-- <script src="${js}/dataTables.bootstrap.js"></script>
+ --%>
 
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap darkly theme -->
-<link href="${css}/bootstrap-darkly-theme.css" rel="stylesheet">
+<%--<!-- Bootstrap darkly theme -->
+<link href="${css}/bootstrap-darkly-theme.css" rel="stylesheet">--%>
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -83,9 +83,10 @@
 
 				<%@include file="contact.jsp"%>
 			</c:if>
-			
+
 			<!-- Loading only when user clicks contact -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts==true}">
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts==true}">
 
 				<%@include file="listProducts.jsp"%>
 			</c:if>
@@ -110,16 +111,20 @@
 		<%@include file="./shared/footer.jsp"%>
 		<!-- /.container -->
 
-		<!-- jQuery -->
+	<%-- 	<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
 
-		<!-- Self coded JavaScript -->
+ --%>		<!-- Self coded JavaScript -->
 		<script src="${js}/myapp.js"></script>
 
-	 </div>
+	</div>
+
+		<script src="${js}/showdata.js">
+	</script>
+	
 </body>
 
 </html>

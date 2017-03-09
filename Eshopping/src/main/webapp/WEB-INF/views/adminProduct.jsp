@@ -3,7 +3,7 @@
      
     <h1>Category details </h1>
      
-    <form:form action="${contextRoot}/add/category" method="POST" modelAttribute="category" class="form-horizontal">
+    <form:form action="${contextRoot}/admin/add/category" method="POST" modelAttribute="category" class="form-horizontal">
  
         <div class="row">
             <div class="form-group col-md-12">
@@ -64,7 +64,7 @@
 	<div class="row">
 	<div class="container col-md-col-md-8 col-md-offset-2">
 
-		<table id="prdat" class="table table-hover">
+		<table id="prdat" class="table">
 			<thead>
 				<tr class="active">
 					
