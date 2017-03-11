@@ -56,7 +56,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public boolean update(Category category) {
 		try{
 			//add the category to the database table
-			sessionFactory.getCurrentSession().update(category);
+			sessionFactory.getCurrentSession().delete(category);
 			 return true;
 		}
 		catch(Exception ex)

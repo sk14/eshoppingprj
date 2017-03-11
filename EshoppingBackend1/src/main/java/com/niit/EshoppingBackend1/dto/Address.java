@@ -1,12 +1,42 @@
 package com.niit.EshoppingBackend1.dto;
 
-public class Address {
+import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+
+public class Address implements Serializable {
+
+	private static final long serialVersionUID = 4657462015039726030L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int addressId;
 	private String addressLine1;
 	private String addressLine2;
 	private String city;
+	private String state;
 	private String country;
+	private boolean shipping;
+	
+	
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	private User user;
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getAddressId() {
 		return addressId;
 	}
@@ -25,6 +55,12 @@ public class Address {
 	public void setAddressLine2(String addressLine2) {
 		this.addressLine2 = addressLine2;
 	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public String getCity() {
 		return city;
 	}
@@ -37,5 +73,12 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	public boolean isShipping() {
+		return shipping;
+	}
+	public void setShipping(boolean shipping) {
+		this.shipping = shipping;
+	}
+	
 	
 }

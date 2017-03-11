@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.EshoppingBackend1.dao.UserDAO;
-
+import com.niit.EshoppingBackend1.dto.Address;
 import com.niit.EshoppingBackend1.dto.User;
 
 
@@ -53,11 +53,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public boolean delete(User user) {
-           user.isActive();
+          // user.isActive();
 		
 		try{
 			//add the category to the database table
-			sessionFactory.getCurrentSession().update(user);
+			sessionFactory.getCurrentSession().delete(user);
 			return true;
 		}
 		catch(Exception ex)
@@ -79,6 +79,21 @@ public class UserDAOImpl implements UserDAO {
 
 	public User get(String username) {
 		return sessionFactory.getCurrentSession().get(User.class,username);
+		
+	}
+	public boolean addUserAddress(Address address)
+	{   
+		try{
+			//add the category to the database table
+			sessionFactory.getCurrentSession().persist(address);
+		    return true;	
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return false;
+			
+		}
 		
 	}
 

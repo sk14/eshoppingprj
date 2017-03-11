@@ -6,12 +6,12 @@
 				<tr>
 					<td><label for="userid">User Name</label></td>
 					<td>:</td>
-					<td><input type="text" placeholder="UserName" name="userid"></td>
+					<td><input type="text" placeholder="UserName" name="username"></td>
 				</tr>
 				<tr>
 					<td><label for="password">Password</label></td>
 					<td>:</td>
-					<td><input type="password" name="pass" placeholder="Password"></td>
+					<td><input type="password" name="password" placeholder="Password"></td>
 				</tr>
 			</table>
 			<a href="index"> <input type="submit" value="login"></a>

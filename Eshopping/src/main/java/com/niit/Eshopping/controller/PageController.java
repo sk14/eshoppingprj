@@ -2,8 +2,11 @@ package com.niit.Eshopping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.EshoppingBackend1.dao.CategoryDAO;
@@ -47,7 +50,7 @@ public class PageController {
 		return mv;
 		
 	}
-	@RequestMapping(value={"/login"})
+	/*@RequestMapping(value={"/login"})
 	public ModelAndView login()
 	{
 		ModelAndView mv=new ModelAndView("page");
@@ -55,7 +58,17 @@ public class PageController {
 		mv.addObject("userClickLogin", true);
 		return mv;
 		
+	}*/
+	
+	@GetMapping("/login")
+	public String login(@RequestParam(value = "error", required = false)String error, ModelMap model) {
+	if(error!=null) {
+	model.addAttribute("error","Authentication Failed - Invalid credentials!");
 	}
+	model.addAttribute("title", "Login");
+	return "login";
+	}
+	
 	@RequestMapping(value={"/register"})
 	public ModelAndView register()
 	{
@@ -64,6 +77,10 @@ public class PageController {
 		mv.addObject("userClickRegister", true);
 		return mv;
 		
+	}
+	@RequestMapping("home")
+	public String home(){
+		return "page";
 	}
 	
 	//methods to load all the product based on the category

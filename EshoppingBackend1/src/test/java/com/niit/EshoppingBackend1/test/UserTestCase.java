@@ -80,7 +80,7 @@ private static AnnotationConfigApplicationContext context;
 		user.setName("kala");
 		user.setEmail("kala@kk.com");
 		user.setPhone("9673594805");
-		user.setRole("customer");
+		//user.setRole("customer");
         assertEquals("Sccussfully added a user inside the table",true,userDAO.add(user));
 		
         user= new User();
@@ -89,7 +89,7 @@ private static AnnotationConfigApplicationContext context;
 		user.setName("priya");
 		user.setEmail("priya@kk.com");
 		user.setPhone("9677594805");
-		user.setRole("supplier");
+		//user.setRole("supplier");
         assertEquals("Sccussfully added a user inside the table",true,userDAO.add(user));
         
         user= new User();
@@ -98,7 +98,7 @@ private static AnnotationConfigApplicationContext context;
 		user.setName("gem");
 		user.setEmail("spgem@kk.com");
 		user.setPhone("9677694805");
-		user.setRole("customer");
+		//user.setRole("customer");
         assertEquals("Sccussfully added a user inside the table",true,userDAO.add(user));
 		
         user= new User();
@@ -107,7 +107,7 @@ private static AnnotationConfigApplicationContext context;
 		user.setName("xyz");
 		user.setEmail("xxx@kk.com");
 		user.setPhone("9687694805");
-		user.setRole("customer");
+		//user.setRole("customer");
         assertEquals("Sccussfully added a user inside the table",true,userDAO.add(user));
 		
         

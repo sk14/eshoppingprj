@@ -1,5 +1,6 @@
 package com.niit.EshoppingBackend1.config;
 
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -58,6 +59,7 @@ public class HibernateConfig {
 		properties.put("hibernate.dailect",DATABASE_DIALECT);
 		properties.put("hibernate.show_sql","true");
 		properties.put("hibernate.format_sql","true");
+		properties.put("hibernate.hbm2ddl.auto", "update");
 		
 		return properties;
 
@@ -73,6 +75,15 @@ public class HibernateConfig {
 		
 		
 	}
+/*	@Bean(name = "multipartResolver")
+	public CommonMultipartResolver getMultipartResolver()throws IOException
+	{
+		long maxUploadSize= 1000000;
+		CommonsMultipartResolver multipartResolver= new CommonsMultipartResolver();
+		multipartResolver.serMaxUploadSize(maxUploadSize);
+		return multipartResolver;
+		
+	}*/
 	
 	
 }

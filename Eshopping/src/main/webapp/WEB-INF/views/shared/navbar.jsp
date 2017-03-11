@@ -23,9 +23,9 @@
 				<li id="adminProduct"><a
 					href="${contextRoot}/admin">Admin</a></li>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="${contextRoot}/register" data-toggle="" ><span
+					<li id="register"><a href="${contextRoot}/register" ><span
 							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="${contextRoot}/login" data-toggle="" ><span
+					<li><a href="${contextRoot}/login" ><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					<li><a href="#"><span
 							class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>

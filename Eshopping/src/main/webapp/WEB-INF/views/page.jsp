@@ -62,9 +62,9 @@
 	<div class="wrapper">
 		<!-- Navigation -->
 		<%@include file="./shared/navbar.jsp"%>
-
+                               
 		<!-- Page Content -->
-
+                  
 		<div class="content">
 			<!-- Loading the home content -->
 			<c:if test="${userClickHome == true}">
@@ -95,12 +95,12 @@
 
 				<%@include file="adminProduct.jsp"%>
 			</c:if>
-			<!-- Loading only when user clicks Admin -->
+			<!-- Loading only when user clicks Login -->
 			<c:if test="${userClickLogin == true}">
 
 				<%@include file="login.jsp"%>
 			</c:if>
-			<!-- Loading only when user clicks Admin -->
+			<!-- Loading only when user clicks Register -->
 			<c:if test="${userClickRegister == true}">
 
 				<%@include file="register.jsp"%>
