@@ -37,22 +37,22 @@ public class RegisterHandler {
 					"password").defaultText("password cannot be Empty").build());
 			status = "failure";
 		}
-		if(user.getName()==null){
+		if(user.getName().isEmpty()){
 			messageContext.addMessage(new MessageBuilder().error().source(
 					"name").defaultText("Name cannot be Empty").build());
 			status = "failure";
 		}
-		if(user.getEmail()==null){
+		if(user.getEmail().isEmpty()){
 			messageContext.addMessage(new MessageBuilder().error().source(
 					"email").defaultText("Email cannot be Empty").build());
 			status = "failure";
 		}
-		if(user.getPhone()==null){
+		if(user.getPhone().isEmpty()){
 			messageContext.addMessage(new MessageBuilder().error().source(
 					"phone").defaultText("Phone cannot be Empty").build());
 			status = "failure";
 		}
-		if(user.getRole()==null){
+		if(user.getRole().isEmpty()){
 			messageContext.addMessage(new MessageBuilder().error().source(
 					"role").defaultText("Role cannot be Empty").build());
 			status = "failure";

@@ -35,7 +35,7 @@
 		<transition on="failure" to="start" />
 	</action-state>
  
-	<end-state id="welcome" view="page" />
+	<end-state id="welcome" view="welcome" />
 	<end-state id="toHome" view="externalRedirect:contextRelative:page.jsp" />
 	<end-state id="toException" view="externalRedirect:contextRelative:exception.jsp" />
  

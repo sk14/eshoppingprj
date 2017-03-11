@@ -1,4 +1,5 @@
-   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -20,22 +21,25 @@
 
 				<li id="listProducts"><a
 					href="${contextRoot}/show/all/products">View Products</a></li>
-				<li id="adminProduct"><a
-					href="${contextRoot}/admin">Admin</a></li>
+				<li id="adminProduct"><a href="${contextRoot}/admin">Admin</a></li>
 				<ul class="nav navbar-nav navbar-right">
-					<li id="register"><a href="${contextRoot}/register" ><span
+					<li id="register"><a href="${contextRoot}/register"><span
 							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="${contextRoot}/login" ><span
+					<li><a href="${contextRoot}/login"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					<li><a href="#"><span
 							class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+							
+					<security:authorize access="isAuthenticated()">
+					<li><a href="${contextRoot}/perform_logout"><span
+							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+							</security:authorize>
 				</ul>
 		</div>
 
-		</div>
-		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container -->
-    </nav>
+</nav>
 
-  
