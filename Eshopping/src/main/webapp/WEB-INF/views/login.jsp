@@ -1,7 +1,7 @@
 
 <div class="login">
 		<h1 id="login">Login</h1>
-		<form action="(${contextRoot/login})" method="POST">
+		<form  method="POST">
 			<table style="margin: 40px;">
 				<tr>
 					<td><label for="userid">User Name</label></td>

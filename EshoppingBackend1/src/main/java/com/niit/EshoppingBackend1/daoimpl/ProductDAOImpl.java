@@ -4,14 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.EshoppingBackend1.dao.ProductDAO;
 import com.niit.EshoppingBackend1.dto.Product;
 
 
+@Repository("productDAO")
 @Transactional
+@EnableTransactionManagement
 public class ProductDAOImpl implements ProductDAO {
 
 	@Autowired
@@ -19,13 +24,62 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	@Transactional
 	public List<Product> listProduct() {
-		return sessionFactory.getCurrentSession().createQuery("from Product").list();
+String selectActiveProduct = "FROM Product WHERE active = :active";
+		
+		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveProduct);
+		
+		query.setParameter("active", true);
+		return query.getResultList();
 	}
 
 	public Product getById(int id) {
-		List<Product> products = new ArrayList<Product>();
-		products = listProduct();
-		return products.get(id);
+		return sessionFactory.getCurrentSession().get(Product.class,Integer.valueOf(id));
 	}
+	public boolean add(Product product){
+		
+		try{
+			//add the product to the database table
+			sessionFactory.getCurrentSession().save(product);
+		    return true;	
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return false;
+			
+		}
+	
+	}
+	
+	public boolean update(Product product) {
+		try{
+			//add the product to the database table
+			sessionFactory.getCurrentSession().update(product);
+			 return true;
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			 return false;
+			
+		}
+	}
+
+	public boolean delete(Product product) {
+		product.setActive(false);
+		
+		try{
+			//add the product to the database table
+			sessionFactory.getCurrentSession().delete(product);
+			return true;
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return false;
+			
+		}
+	}
+	
 
 }

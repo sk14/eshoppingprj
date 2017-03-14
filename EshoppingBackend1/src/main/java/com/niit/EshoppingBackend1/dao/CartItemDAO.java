@@ -11,9 +11,12 @@ public interface CartItemDAO {
 
 	public boolean update(CartItem cartItem);
 
-	public boolean delete(CartItem cartItem);
+	//public boolean delete(CartItem cartItem);
 
-	public List<CartItem> list(int id);
+	public List<CartItem> list();
 
 	public CartItem get(int id);
+	
+	void delete(int id);
+
 }

@@ -1,5 +1,7 @@
 package com.niit.Eshopping.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -7,10 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.EshoppingBackend1.dao.CategoryDAO;
 import com.niit.EshoppingBackend1.dto.Category;
+import com.niit.EshoppingBackend1.dao.ProductDAO;
+import com.niit.EshoppingBackend1.dto.Product;
 
 
 
@@ -19,6 +24,7 @@ public class PageController {
 
 	@Autowired 
 	private CategoryDAO categoryDAO;
+	private ProductDAO productDAO;
 	
 	@RequestMapping(value={"/","/home", "/index"})
 	public ModelAndView index()
@@ -78,10 +84,10 @@ public class PageController {
 		return mv;
 		
 	}
-	@RequestMapping("home")
+	/*@RequestMapping(value={"/home"})
 	public String home(){
 		return "page";
-	}
+	}*/
 	
 	//methods to load all the product based on the category
 	
@@ -91,12 +97,20 @@ public class PageController {
 		ModelAndView mv=new ModelAndView("page");
 		mv.addObject("title", "All Products");
 		
-		//passing the list of categories
-		mv.addObject("categories",categoryDAO.list());
+		//passing the list of products
+		mv.addObject("product",productDAO.listProduct());
+		System.out.println("object created");
 		mv.addObject("userClickAllProducts", true);
 		return mv;
 		
 	}
+	@GetMapping(value = { "/all/products" })
+	@ResponseBody
+	public List<Product> showAll() {
+		return productDAO.listProduct();
+	}
+	
+	
 	@RequestMapping(value={"/show/category/{id}/products"})
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id)
 	{

@@ -6,9 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <<title>Spring Mvc WebFlow Demo</title>
-		<link href="style.css" rel="stylesheet" type="text/css" />
+		
 	</head>
- <a href="${flowExecutionUrl}&_eventId_home">Home</a>
+
 	<body>
 		<div class="content">
 			<fieldset>
@@ -17,6 +17,7 @@
 					 the eventId to be triggered is given in "href" attribute as:
 				 -->
 				<a href="${flowExecutionUrl}&_eventId_home">Home</a><br /><br />
+				
 				<sf:form modelAttribute="user">
 					<sf:label path="username">UserName:</sf:label>${user.username}
 					<br /><br />

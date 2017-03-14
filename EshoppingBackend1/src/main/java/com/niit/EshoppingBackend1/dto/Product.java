@@ -1,5 +1,8 @@
 package com.niit.EshoppingBackend1.dto;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,11 +10,13 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Product {
+public class Product implements Serializable {
 
 	/* 
 	 * private fields
 	 */
+	private static final long serialVersionUID = 1L;
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +25,15 @@ public class Product {
 	private String description;
 	private int price;
 	private String imageUrl;
+	@Column(name="is_active")
+	private boolean active=true;
 	
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 	public int getId() {
 		return id;
 	}

@@ -15,9 +15,10 @@ public interface UserDAO {
 
 	public List<User> list();
 
-	public User get(String username);
+	public User getUserByUsername(String username);
 	
 	public boolean addUserAddress(Address address);
 	
+	User get(int id);
 
 }

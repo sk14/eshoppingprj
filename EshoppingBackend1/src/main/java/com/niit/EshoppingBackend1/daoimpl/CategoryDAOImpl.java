@@ -42,7 +42,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	
 		try{
 			//add the category to the database table
-			sessionFactory.getCurrentSession().persist(category);
+			sessionFactory.getCurrentSession().save(category);
 		    return true;	
 		}
 		catch(Exception ex)
@@ -56,7 +56,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public boolean update(Category category) {
 		try{
 			//add the category to the database table
-			sessionFactory.getCurrentSession().delete(category);
+			sessionFactory.getCurrentSession().update(category);
 			 return true;
 		}
 		catch(Exception ex)
@@ -75,7 +75,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		
 		try{
 			//add the category to the database table
-			sessionFactory.getCurrentSession().update(category);
+			sessionFactory.getCurrentSession().delete(category);
 			return true;
 		}
 		catch(Exception ex)

@@ -36,7 +36,7 @@
 	</action-state>
  
 	<end-state id="welcome" view="welcome" />
-	<end-state id="toHome" view="externalRedirect:contextRelative:page.jsp" />
+	<end-state id="toHome" view="externalRedirect:contextRelative:Eshopping/page.jsp" />
 	<end-state id="toException" view="externalRedirect:contextRelative:exception.jsp" />
  
  

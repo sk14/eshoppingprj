@@ -6,21 +6,22 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.niit.EshoppingBackend1.dao.CartDAO;
 import com.niit.EshoppingBackend1.dao.CartItemDAO;
 import com.niit.EshoppingBackend1.dao.ProductDAO;
 import com.niit.EshoppingBackend1.dao.UserDAO;
 import com.niit.EshoppingBackend1.dto.Cart;
 import com.niit.EshoppingBackend1.dto.CartItem;
 import com.niit.EshoppingBackend1.dto.Product;
+import com.niit.EshoppingBackend1.dto.User;
 
 public class CartItemTestCase {
 
 	private static AnnotationConfigApplicationContext context;
 	
 	private static CartItemDAO cartItemDAO;
-
 	private static UserDAO userDAO;
-
+	private static CartDAO cartDAO;
 	private static ProductDAO productDAO;
 	
 	@BeforeClass
@@ -29,23 +30,27 @@ public class CartItemTestCase {
 		context.scan("com.niit.EshoppingBackend1");
 		context.refresh();
 		cartItemDAO = (CartItemDAO)context.getBean("cartItemDAO");
+		cartDAO = (CartDAO)context.getBean("cartDAO");
 		userDAO = (UserDAO)context.getBean("userDAO");
 		productDAO = (ProductDAO)context.getBean("productDAO");
 
 	}
 	
-	/*	@Test
+		@Test
 	public void testListCartItem(){
 		
 		// get the user
-		User user = userDAO.get(2);
+		//User user = userDAO.getUserByUsername("sdf");
+		User user=userDAO.get(1);
 		// get the cart
 		Cart cart = user.getCart();
-		// get the cartItems
+		//Product product = productDAO.getProduct(1);
+
+
 		
-		assertEquals("List CartItem fetched Successfully!",0,cartItemDAO.list(cart).size());
+		assertEquals("List CartItem fetched Successfully!",0,cartItemDAO.list().size());
 		
-	}*/
+	}
 
 	
 	// Adding a new cartItem

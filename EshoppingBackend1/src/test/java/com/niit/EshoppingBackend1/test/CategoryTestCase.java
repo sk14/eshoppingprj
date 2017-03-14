@@ -43,8 +43,8 @@ public class CategoryTestCase {
 	/*@Test
 	public void testGetCategory()
 	{
-		category= categoryDAO.get(3);
-		assertEquals("Sccussfully fetched a single category from the table","Laptop",category.getName());
+		category= categoryDAO.get(5);
+		assertEquals("Sccussfully fetched a single category from the table","Tablet",category.getName());
 	}*/
 	
 	/*@Test

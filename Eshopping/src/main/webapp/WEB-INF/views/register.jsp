@@ -76,8 +76,8 @@
 			<div class="form-group col-md-12">
 				<label class="col-md-3 control-lable" for="role">role</label>
 				<div class="col-md-7">
-				    <form:radiobutton path="role" id="role" value="customer" class="form-control input-sm"/> Customer
-				    <form:radiobutton path="role" id="role" value="supplier" class="form-control input-sm"/> Supplier
+				    <form:radiobutton path="role" id="role" value="CUSTOMER" class="form-control input-sm"/> Customer
+				    <form:radiobutton path="role" id="role" value="SUPPLIER" class="form-control input-sm"/> Supplier
 					
 					<div class="has-error">
 						<form:errors path="role" class="help-inline"/>

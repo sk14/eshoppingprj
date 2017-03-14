@@ -36,7 +36,7 @@ public class User implements Serializable {
 	private boolean enabled = true;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-	private Set<Address> address = new HashSet<Address>(0);
+	private Set<Address> address = new HashSet<Address>();
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
     private Cart cart;

@@ -112,11 +112,11 @@ private static AnnotationConfigApplicationContext context;
 		
         
         //fecting and updating the category
-        user= userDAO.get("xxx30");
-		assertEquals("Sccussfully fetched a single user from the table","xyz",user.getName());
+        user= userDAO.get(1);
+		assertEquals("Sccussfully fetched a single user from the table","shobana",user.getName());
 		
 		//delete the category
-		user= userDAO.get("xxx30");
+		user= userDAO.get(7);
 		   
 		assertEquals("Sccussfully deleted single user from the table",true,userDAO.delete(user));
 		

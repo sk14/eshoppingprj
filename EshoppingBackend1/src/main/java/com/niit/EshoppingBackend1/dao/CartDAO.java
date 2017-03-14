@@ -7,20 +7,20 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.EshoppingBackend1.dto.Cart;
-@Repository("cartDAO")
-@Transactional
-@EnableTransactionManagement
+
 public interface CartDAO {
 
-	public boolean add(Cart cart);
+	 boolean add(Cart cart);
 
-	public boolean update(Cart cart);
+	 boolean update(Cart cart);
 
-	public boolean delete(Cart cart);
+	//public boolean delete(Cart cart);
+	void delete(int id);
 
-	public List<Cart> list(int id);
 
-	public Cart get(int id);
+	 List<Cart> list();
+
+	 Cart get(int id);
 	
 	
 }

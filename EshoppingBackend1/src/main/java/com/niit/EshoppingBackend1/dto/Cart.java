@@ -1,7 +1,9 @@
 package com.niit.EshoppingBackend1.dto;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -25,10 +27,10 @@ public class Cart implements Serializable {
 	private User user;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="cart")
-	private List<CartItem> cartItems;
+	private Set<CartItem> cartItems=new HashSet<CartItem>();
 	
 	private int cartItemsCount;
-
+	private int totalitemsvalue;
 	private double grandTotal;
 
 	public int getId() {
@@ -47,11 +49,11 @@ public class Cart implements Serializable {
 		this.user = user;
 	}
 
-	public List<CartItem> getCartItems() {
+	public Set<CartItem> getCartItems() {
 		return cartItems;
 	}
 
-	public void setCartItems(List<CartItem> cartItems) {
+	public void setCartItems(Set<CartItem> cartItems) {
 		this.cartItems = cartItems;
 	}
 
@@ -70,7 +72,13 @@ public class Cart implements Serializable {
 	public void setGrandTotal(double grandTotal) {
 		this.grandTotal = grandTotal;
 	}
-	
+	public int getTotalitemsvalue() {
+		return totalitemsvalue;
+	}
+
+	public void setTotalitemsvalue(int totalitemsvalue) {
+		this.totalitemsvalue = totalitemsvalue;
+	}
 	@Override
 	public String toString() {
 		return "Cart [id=" + id + ", cartItemsCount=" + cartItemsCount + ", grandTotal=" + grandTotal + "]";

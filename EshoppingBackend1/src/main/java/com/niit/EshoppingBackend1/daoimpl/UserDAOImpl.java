@@ -17,7 +17,6 @@ import com.niit.EshoppingBackend1.dto.User;
 
 @Repository("userDAO")
 @Transactional
-@EnableTransactionManagement
 public class UserDAOImpl implements UserDAO {
 
 
@@ -77,8 +76,11 @@ public class UserDAOImpl implements UserDAO {
 		return query.getResultList();
 	}
 
-	public User get(String username) {
-		return sessionFactory.getCurrentSession().get(User.class,username);
+	public User getUserByUsername(String username) {
+		
+		String selectUser="FROM User WHERE username = :username";
+		
+		return sessionFactory.getCurrentSession().createQuery(selectUser, User.class).setParameter("username", username).getSingleResult();
 		
 	}
 	public boolean addUserAddress(Address address)
@@ -92,9 +94,12 @@ public class UserDAOImpl implements UserDAO {
 		{
 			ex.printStackTrace();
 			return false;
-			
 		}
 		
+	}
+
+	public User get(int id) {
+		return sessionFactory.getCurrentSession().get(User.class, Integer.valueOf(id));
 	}
 
 }
