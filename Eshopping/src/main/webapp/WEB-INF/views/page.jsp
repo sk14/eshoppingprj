@@ -39,8 +39,8 @@
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<%--<!-- Bootstrap darkly theme -->
-<link href="${css}/bootstrap-darkly-theme.css" rel="stylesheet">--%>
+<!-- Bootstrap darkly theme -->
+<link href="${css}/bootstrap-darkly-theme.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -110,7 +110,7 @@
 		</div>
 		<!-- Footer comes here -->
 		<%@include file="./shared/footer.jsp"%>
-		<!-- /.container -->
+		<!-- .container -->
 
 	<%-- 	<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>

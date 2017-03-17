@@ -14,8 +14,6 @@ import com.niit.EshoppingBackend1.dto.Category;
 
 @Repository("categoryDAO")
 @Transactional
-@EnableTransactionManagement
-
 public class CategoryDAOImpl implements CategoryDAO {
 	
 	@Autowired
@@ -69,7 +67,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 
 
-	public boolean delete(Category category) {
+	/*public boolean delete(Category category) {
 		 
 		category.setActive(false);
 		
@@ -83,6 +81,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 			ex.printStackTrace();
 			return false;
 			
+		}
+	}*/
+
+	public void delete(int id) {
+     
+		Category category = (Category) sessionFactory.getCurrentSession().load(Category.class, new Integer(id));
+		if (category != null) {
+			sessionFactory.getCurrentSession().delete(category);
 		}
 	}
 

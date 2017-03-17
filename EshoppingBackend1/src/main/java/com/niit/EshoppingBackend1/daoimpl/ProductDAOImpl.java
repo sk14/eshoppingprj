@@ -16,13 +16,13 @@ import com.niit.EshoppingBackend1.dto.Product;
 
 @Repository("productDAO")
 @Transactional
-@EnableTransactionManagement
+
 public class ProductDAOImpl implements ProductDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Transactional
+
 	public List<Product> listProduct() {
 String selectActiveProduct = "FROM Product WHERE active = :active";
 		
@@ -65,7 +65,7 @@ String selectActiveProduct = "FROM Product WHERE active = :active";
 		}
 	}
 
-	public boolean delete(Product product) {
+	/*public boolean delete(Product product) {
 		product.setActive(false);
 		
 		try{
@@ -79,7 +79,18 @@ String selectActiveProduct = "FROM Product WHERE active = :active";
 			return false;
 			
 		}
+	}*/
+
+	public void delete(int id) {
+		Product product = (Product) sessionFactory.getCurrentSession().load(Product.class, new Integer(id));
+		if (product != null) {
+			sessionFactory.getCurrentSession().delete(product);
+		}
+		
+	}
+
+	public Product getProduct(int id) {
+		return sessionFactory.getCurrentSession().get(Product.class, id);
+		}
 	}
 	
-
-}

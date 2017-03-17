@@ -1,7 +1,7 @@
  
  <div class="form-container">
      
-    <h1>Category details </h1>
+    <h1>Product details </h1>
      
     <form:form action="${contextRoot}/admin/add/category" method="POST" modelAttribute="category" class="form-horizontal">
  

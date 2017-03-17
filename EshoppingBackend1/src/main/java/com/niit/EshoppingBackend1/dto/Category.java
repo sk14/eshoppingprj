@@ -2,48 +2,59 @@ package com.niit.EshoppingBackend1.dto;
 
 
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 @Entity
-public class Category {
+public class Category implements Serializable{
 	
-	/*
+	
+/*
 	 * private fields
 	 */
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int id;
+
 @NotNull(message="name required")
-@Size(min=1,max=50)
+@Size(min=4,max=25)
 private String name;
+
 @NotNull(message="description of product is required")
 @Size(min=1,max=80)
 private String description;
+
 @Column(name="image_url")
 private String imageURL;
 
-/*
 @Transient
-private MultipartFile files;
+private MultipartFile file;
 
-
-
-public MultipartFile getFiles() {
-	return files;
+public MultipartFile getFile() {
+	return file;
 }
-public void setFiles(MultipartFile files) {
-	this.files = files;
-}*/
+public void setFile(MultipartFile file) {
+	this.file = file;
+}
+
+
 @Column(name="is_active")
 private boolean active=true;
 

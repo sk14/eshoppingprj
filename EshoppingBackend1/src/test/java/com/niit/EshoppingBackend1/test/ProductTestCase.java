@@ -13,10 +13,11 @@ import com.niit.EshoppingBackend1.dto.Product;
 
 
 public class ProductTestCase {
+	
 private static AnnotationConfigApplicationContext context;
 	
 	private static ProductDAO productDAO;
-	
+	private static CategoryDAO categoryDAO;
 	private Product product;
 	@BeforeClass
 	public static void init()
@@ -26,16 +27,20 @@ private static AnnotationConfigApplicationContext context;
 		context.refresh();
 		
 		productDAO = (ProductDAO)context.getBean("productDAO");
+		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
+
 	}
 	
 	/*@Test
 	public void testAddProduct()
 	{
 		product= new Product();
-		product.setName("OnePlus");
+		product.setName("OnePlus1");
 		product.setDescription("Get maximum productivity with silver One plus");
 		product.setPrice(12000);
 		product.setImageUrl("m13.jpg");
+		product.setCategoryid(2);	
+		product.setCategory(categoryDAO.get(1));
 		
         assertEquals("Sccussfully added a product inside the table",true,productDAO.add(product));
 	}*/
@@ -68,7 +73,7 @@ private static AnnotationConfigApplicationContext context;
 		assertEquals("Sccussfully fetched the list of  from the table",4,productDAO.listProduct().size());
 	}
 	*/
-	@Test
+	/*@Test
 	public void testCRUDProduct()
 	{
 		product= new Product();
@@ -91,13 +96,8 @@ private static AnnotationConfigApplicationContext context;
 		
 		product= productDAO.getById(44);
 		   
-		assertEquals("Sccussfully deleted single product from the table",true,productDAO.delete(product));
+		//assertEquals("Sccussfully deleted single product from the table",true,productDAO.delete(1));
 		
 		assertEquals("Sccussfully fetched the list of  from the table",6,productDAO.listProduct().size());
-		
-		
-        
-		
-		
-	}
+	}*/
 }

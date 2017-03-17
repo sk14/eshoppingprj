@@ -86,11 +86,17 @@ public class AdminController {
 	}
 	// deleting a category
 
-	@RequestMapping(value = "/delete/category}")
+	/*@RequestMapping(value = "/delete/category}")
 	public String deleteCategoryById(@Valid Category category, BindingResult result) {
 		// this.categoryDAO.delete(id);
 		if (categoryDAO.delete(category)) {
 		}
+		return "redirect:/admin";
+	}*/
+	@RequestMapping(value = { "/delete/{id}/category" })
+	public String deleteCategoryById(@PathVariable Integer id) {
+		categoryDAO.delete(id);
+
 		return "redirect:/admin";
 	}
 

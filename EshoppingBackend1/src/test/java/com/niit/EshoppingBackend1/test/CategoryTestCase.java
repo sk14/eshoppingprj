@@ -27,18 +27,18 @@ public class CategoryTestCase {
 		categoryDAO = (CategoryDAO)context.getBean("categoryDAO");
 	}
 	
-	/*@Test
+	@Test
 	public void testAddCategory()
 	{
 		category= new Category();
-		category.setName("Mobile");
+		category.setName("Mobile1");
 		category.setDescription(" Smart phones with high end features");
-		category.setImageURL("m11.jpg");
+		category.setImageURL("m16.jpg");
 		
         assertEquals("Sccussfully added a category inside the table",true,categoryDAO.add(category));
         
 		
-	}*/
+	}
 	
 	/*@Test
 	public void testGetCategory()
@@ -70,7 +70,7 @@ public class CategoryTestCase {
 		assertEquals("Sccussfully fetched the list of category from the table",3,categoryDAO.list().size());
 	}*/
 	
-	@Test
+	/*@Test
 	public void testCRUDCategory()
 	{
 		//add operation
@@ -93,14 +93,13 @@ public class CategoryTestCase {
 		assertEquals("Sccussfully updated single category into the table",true,categoryDAO.update(category));
 		
 		//delete the category
-		category= categoryDAO.get(2);
-		   
-		assertEquals("Sccussfully deleted single category from the table",true,categoryDAO.delete(category));
+		
+		//assertEquals("Sccussfully deleted single category from the table",true,categoryDAO.delete(97));
 		
 		// fetching the list of categories
 		assertEquals("Sccussfully fetched the list of category from the table",6,categoryDAO.list().size());
         
-	}
+	}*/
 	
 	
 }

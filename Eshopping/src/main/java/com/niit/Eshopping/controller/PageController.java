@@ -24,6 +24,7 @@ public class PageController {
 
 	@Autowired 
 	private CategoryDAO categoryDAO;
+	@Autowired 
 	private ProductDAO productDAO;
 	
 	@RequestMapping(value={"/","/home", "/index"})
@@ -96,11 +97,12 @@ public class PageController {
 	{
 		ModelAndView mv=new ModelAndView("page");
 		mv.addObject("title", "All Products");
+		mv.addObject("userClickAllProducts", true);
 		
 		//passing the list of products
-		mv.addObject("product",productDAO.listProduct());
+		/*mv.addObject("product",productDAO.listProduct());
 		System.out.println("object created");
-		mv.addObject("userClickAllProducts", true);
+		mv.addObject("userClickAllProducts", true);*/
 		return mv;
 		
 	}
@@ -133,5 +135,13 @@ public class PageController {
 		return mv;
 		
 	}
+	@RequestMapping(value="showproduct/{id}")
+	public ModelAndView showProducts(@PathVariable("id") int id)
+	{
+		ModelAndView mv=new ModelAndView("showproduct");
+		mv.addObject("prd",productDAO.getProduct(id));
+		return mv;
+	}
+
 }
 
