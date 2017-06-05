@@ -73,31 +73,31 @@ private static AnnotationConfigApplicationContext context;
 		assertEquals("Sccussfully fetched the list of  from the table",4,productDAO.listProduct().size());
 	}
 	*/
-	/*@Test
+	@Test
 	public void testCRUDProduct()
 	{
 		product= new Product();
 		product.setName("Sony");
 		product.setDescription("Get maximum productivity with sony");
 		product.setPrice(19000);
-		product.setImageUrl("m19.jpg");
-		
+		product.setImageUrl("ph12.jpg");
         assertEquals("Sccussfully added a product inside the table",true,productDAO.add(product));
+        
         product= new Product();
-		product.setName("Sonyxx");
-		product.setDescription("Getxx maximum productivity with sony");
+		product.setName("One Plus Two");
+		product.setDescription("Selfie expert");
 		product.setPrice(18000);
-		product.setImageUrl("m89.jpg");
-		
+		product.setImageUrl("ph2.jpg");
         assertEquals("Sccussfully added a product inside the table",true,productDAO.add(product));
-        product= productDAO.getById(2);
+        
+          product= productDAO.getById(2);
 	    product.setName("Samsung Note 5");
 		assertEquals("Sccussfully updated single product into the table",true,productDAO.update(product));
 		
-		product= productDAO.getById(44);
+		//product= productDAO.getById(44);
 		   
 		//assertEquals("Sccussfully deleted single product from the table",true,productDAO.delete(1));
 		
-		assertEquals("Sccussfully fetched the list of  from the table",6,productDAO.listProduct().size());
-	}*/
+		assertEquals("Sccussfully fetched the list of from the table",2,productDAO.listProduct().size());
+	}
 }

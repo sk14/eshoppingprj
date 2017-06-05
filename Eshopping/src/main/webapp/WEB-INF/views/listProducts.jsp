@@ -62,6 +62,7 @@
 	</div>
 	<script type="text/javascript">
 		$(function() {
+		
 			$('#allprd')
 					.DataTable(
 							{
@@ -93,7 +94,7 @@
 											data : null,
 											mRender : function(data, type, row) {
 												return '<a class="btn btn-primary" href="${contextRoot}/showproduct/' 
-										+ row.id+ '">View Item</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-primary" href="/Eshopping/cart/user/"'+ row.id + '">ADD TO CART</a>';
+										+ row.id+ '">View Item</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="btn btn-primary" href="/Eshopping/cart/user/addtocart/'+ row.id + '">ADD TO CART</a>';
 											}
 										} ]
 							});

@@ -13,7 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
 public class User implements Serializable {
 
@@ -34,14 +36,26 @@ public class User implements Serializable {
 	private String role="CUSTOMER";
 
 	private boolean enabled = true;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	private Set<Orders> order = new HashSet<Orders>();
 
+	
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER, mappedBy = "user")
+	private Cart cart;
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 	private Set<Address> address = new HashSet<Address>();
 
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
-    private Cart cart;
-	
-	
+	public Set<Orders> getOrder() {
+		return order;
+	}
+
+	public void setOrder(Set<Orders> order) {
+		this.order = order;
+	}
+
+
 	public Set<Address> getAddress() {
 		return address;
 	}

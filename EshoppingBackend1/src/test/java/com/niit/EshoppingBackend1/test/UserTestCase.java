@@ -27,19 +27,19 @@ private static AnnotationConfigApplicationContext context;
 		userDAO = (UserDAO)context.getBean("userDAO");
 	}
 	
-	/*@Test
+	@Test
 	public void testAddUser()
 	{
 		user= new User();
-		user.setUsername("pr30");
-		user.setPassword("pr123");
-		user.setName("priya");
+		user.setUsername("p");
+		user.setPassword("p");
+		user.setName("pri");
 		user.setEmail("priya@kk.com");
 		user.setPhone("9674594805");
 		user.setRole("customer");
         assertEquals("Sccussfully added a user inside the table",true,userDAO.add(user));
 
-	}*/
+	}
 	/*
 	@Test
 	public void testGetUser()
@@ -70,7 +70,7 @@ private static AnnotationConfigApplicationContext context;
 		assertEquals("Sccussfully fetched the list of user from the table",6,userDAO.list().size());
 	}*/
 	
-	@Test
+/*	@Test
 	public void testCRUDUser()
 	{
 		//add operation
@@ -123,6 +123,6 @@ private static AnnotationConfigApplicationContext context;
 		// fetching the list of categories
 		assertEquals("Sccussfully fetched the list of user from the table",3,userDAO.list().size());
         
-	}
+	}*/
 	
 }

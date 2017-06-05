@@ -1,31 +1,42 @@
 package com.niit.Eshopping.controller;
 
+
+import java.util.HashSet;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
 
+import com.niit.EshoppingBackend1.dao.AddressDAO;
 import com.niit.EshoppingBackend1.dao.UserDAO;
 import com.niit.EshoppingBackend1.dto.Address;
+import com.niit.EshoppingBackend1.dto.Cart;
 import com.niit.EshoppingBackend1.dto.User;
 
 @Component
 public class RegisterHandler {
 
 	@Autowired
-	
 	private UserDAO userDAO;
 	
+	@Autowired
+	private AddressDAO addressDAO;
 	
-	
-	public User initFlow(){
+	/*public User initFlow(){
 		//return  new RegisterModel();
 		return new User();
 		
+	}*/
+	
+	public RegisterModel initFlow(){
+		
+		return new RegisterModel();
 	}
 	
  
-	public String validateDetails(User user,MessageContext messageContext){
+	public String validateDetails(RegisterModel registerModel,User user,MessageContext messageContext){
 		String status = "success";
 		if(user.getUsername().isEmpty()){
 			messageContext.addMessage(new MessageBuilder().error().source(
@@ -57,12 +68,37 @@ public class RegisterHandler {
 					"role").defaultText("Role cannot be Empty").build());
 			status = "failure";
 		}
+		registerModel.setUser(user);
 		return status;
 	}
 	
-	public void saveRegistrationDetails(User user) {
+	public void saveBillingAddress(RegisterModel registerModel,Address billingAddress)
+	{
+		registerModel.setBillingAddress(billingAddress);;
+	}
+
+	
+	public void saveRegistrationDetails(RegisterModel registerModel) {
 	
 		System.out.println("inside method1");
+		
+		User user=registerModel.getUser();
+		Address billing=registerModel.getBillingAddress();
+		System.out.println("Address: "+ billing );
+		Cart cart=new Cart();
+		registerModel.setCart(cart);
+		System.out.println("Cart object: "+cart);
+		
+		cart.setUser(user);
+		user.setCart(cart);
+		
+		billing.setUser(user);
+		
+		Set<Address> addresslist=new HashSet<Address>();
+		addresslist.add(billing);
+		user.setAddress(addresslist);	
+		
+		System.out.println("User info: "+user);
 		boolean  status;
 		 try
 		 {

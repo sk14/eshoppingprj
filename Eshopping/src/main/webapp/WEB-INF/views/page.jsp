@@ -95,7 +95,19 @@
 			<c:if test="${userClickAdmin == true }">
 
 				<%@include file="adminProduct.jsp"%>
+
 			</c:if>
+			
+			<c:if test="${userClickProduct==true}">
+				<%@include file="addProduct.jsp"%>
+			</c:if>
+			
+			<c:if test="${userClickViewCart==true}">
+				<%@include file="cart.jsp"%>
+
+			</c:if>
+
+
 			<!-- Loading only when user clicks Login -->
 			<c:if test="${userClickLogin == true}">
 
@@ -108,8 +120,7 @@
 			</c:if>
 
 		</div>
-		<!-- Footer comes here -->
-		<%@include file="./shared/footer.jsp"%>
+		
 		<!-- .container -->
 
 	<%-- 	<!-- jQuery -->
@@ -124,7 +135,11 @@
 	</div>
 
 		<script src="${js}/showdata.js">
+		
+		<script src="${js}/showprd.js">
 	</script>
+	<!-- Footer comes here -->
+		<%@include file="./shared/footer.jsp"%>
 	
 </body>
 

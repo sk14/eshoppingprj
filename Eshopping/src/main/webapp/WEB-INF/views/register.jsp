@@ -18,7 +18,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title> Products</title>
+<title> Registration</title>
 <script>
 	window.menu = '${title}';
 </script>
@@ -28,8 +28,8 @@
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<%--<!-- Bootstrap darkly theme -->
-<link href="${css}/bootstrap-darkly-theme.css" rel="stylesheet">--%>
+<!-- Bootstrap darkly theme -->
+<link href="${css}/bootstrap-darkly-theme.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -42,7 +42,7 @@
 		<%@include file="./shared/navbar.jsp"%>
 
 
- 	<a href="${flowExecutionUrl}&_eventId_home">Home</a>
+ 	<!--<a href="${flowExecutionUrl}&_eventId_home">Home</a> -->
  	<div class="form-container">
  	
  	<h1>Registration Form</h1>
@@ -127,8 +127,6 @@
 				<input name="_eventId_submit" type="submit" value="Submit" class="btn btn-primary btn-sm">
 				<input name="_eventId_edit" type="submit" value="Edit" class="btn btn-primary btn-sm">
 				</div>
-				
-				
 				
 		</div>
 		

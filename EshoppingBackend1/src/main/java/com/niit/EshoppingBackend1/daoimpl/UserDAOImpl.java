@@ -26,6 +26,7 @@ public class UserDAOImpl implements UserDAO {
 	public boolean add(User user) {
 		try{
 			//add the category to the database table
+			System.out.println(user.toString());
 			sessionFactory.getCurrentSession().persist(user);
 		    return true;	
 		}
@@ -78,9 +79,12 @@ public class UserDAOImpl implements UserDAO {
 
 	public User getUserByUsername(String username) {
 		
-		String selectUser="FROM User WHERE username = :username";
+		/*String selectUser="FROM User WHERE username = :username";
 		
 		return sessionFactory.getCurrentSession().createQuery(selectUser, User.class).setParameter("username", username).getSingleResult();
+		*/
+		return	(User) sessionFactory.getCurrentSession().createQuery("FROM User WHERE username =:username").setParameter("username", username).getSingleResult();
+
 		
 	}
 	public boolean addUserAddress(Address address)

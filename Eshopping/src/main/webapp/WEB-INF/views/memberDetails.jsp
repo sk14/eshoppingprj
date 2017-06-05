@@ -35,6 +35,7 @@
 <link href="${css}/myapp.css" rel="stylesheet">
 <link rel="stylesheet" href="${css}/dataTables.bootstrap.css" />
 <link rel="stylesheet" href="${css}/jquery.dataTables.min.css" />
+<link href="${css}/bootstrap-darkly-theme.css" rel="stylesheet">
 </head>
 
 <body>
@@ -49,7 +50,7 @@
 				 -->
 			<a href="${flowExecutionUrl}&_eventId_home">Home</a>
 			<sf:form modelAttribute="user">
-				<br />
+				<br/>
 				<sf:label path="username">UserName:</sf:label>
 				<sf:input path="username" />
 				<br />

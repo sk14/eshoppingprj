@@ -80,11 +80,16 @@ public class CartItemDAOImpl implements CartItemDAO {
 	}
 
 	public void delete(int id) {
-		CartItem cartItem=	(CartItem) sessionFactory.getCurrentSession().load(CartItem.class, new Integer(id));
+		/*CartItem cartItem=	(CartItem) sessionFactory.getCurrentSession().load(CartItem.class, new Integer(id));
 		if (cartItem!=null)
 		{
 			sessionFactory.getCurrentSession().delete(cartItem);
-		}
+		}*/
+		Query q=sessionFactory.getCurrentSession().createQuery("Delete from CartItem where id=:id");
+		q.setParameter("id", id);
+		q.executeUpdate();
+		
+
 
 	}
 

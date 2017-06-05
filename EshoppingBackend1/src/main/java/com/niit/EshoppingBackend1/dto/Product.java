@@ -34,7 +34,7 @@ public class Product implements Serializable {
 	private String description;
 	private int price;
 	private String imageUrl;
-	//private int categoryid;
+	
 	
 	@Column(name="is_active")
 	private boolean active=true;

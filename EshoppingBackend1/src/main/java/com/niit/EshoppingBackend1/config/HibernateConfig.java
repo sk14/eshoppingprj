@@ -19,10 +19,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class HibernateConfig {
      
-	private final static String DATABASE_URL ="jdbc:h2:tcp://localhost/~/eshopping";
+	private final static String DATABASE_URL ="jdbc:h2:tcp://localhost/~/eshop";
 	private final static String DATABASE_DRIVER ="org.h2.Driver";
 	private final static String DATABASE_DIALECT ="org.hibernate.dailect.H2Dailect";
-	private final static String DATABASE_USERNAME ="sa77";
+	private final static String DATABASE_USERNAME ="sa14";
 	private final static String DATABASE_PASSWORD ="";
 	
    // datasource bean will be available

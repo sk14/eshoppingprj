@@ -11,7 +11,7 @@
 	<!-- Security for the rest of my mappings -->
 	<http>
 		<intercept-url pattern="/admin/**" access="hasAuthority('ADMIN')" />
-		<intercept-url pattern="/customer/**" access="hasAuthority('CUSTOMER')" />
+		<intercept-url pattern="/cart/**" access="hasAuthority('CUSTOMER')" />
 
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" default-target-url="/"

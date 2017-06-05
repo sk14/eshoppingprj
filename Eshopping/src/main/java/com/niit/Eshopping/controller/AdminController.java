@@ -1,5 +1,6 @@
 package com.niit.Eshopping.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +22,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.EshoppingBackend1.dao.CategoryDAO;
+import com.niit.EshoppingBackend1.dao.ProductDAO;
 import com.niit.EshoppingBackend1.dto.Category;
+import com.niit.EshoppingBackend1.dto.Product;
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -29,9 +32,11 @@ public class AdminController {
 
 	@Autowired
 	private CategoryDAO categoryDAO;
+	@Autowired
+	private ProductDAO productDAO;
 
-	// @Autowired
-	// private HttpServletRequest request;
+	 @Autowired
+	 private HttpServletRequest request;
 
 	// admin page will be loaded
 	@RequestMapping(method = RequestMethod.GET)
@@ -99,6 +104,96 @@ public class AdminController {
 
 		return "redirect:/admin";
 	}
+
+	@RequestMapping(value = "/displayproduct", method = RequestMethod.GET)
+	public String newProducts(ModelMap model) {
+		Category category = new Category();
+		Product product = new Product();
+		model.addAttribute("product", product);
+		model.addAttribute("userClickProduct", true);
+
+		return "page";
+	}
+	
+	// - Product
+		@GetMapping("/allproducts")
+		@ResponseBody
+		public List<Product> allproduct() {
+
+			return productDAO.listProduct();
+		}
+
+		@RequestMapping(value={"/admin/Products"})
+		public String newProduct(ModelMap model) {
+			Product product = new Product();
+			model.addAttribute("product", product);
+			model.addAttribute("userClickProduct", true);
+
+			return "page";
+		}
+
+		@RequestMapping(value = "/add/product", method = RequestMethod.POST)
+		public String submitForm(@Valid Product product, BindingResult result, ModelMap model) {
+			
+				if (result.hasErrors()) {
+					model.addAttribute("product", product);
+					model.addAttribute("userClickProduct", true);
+					return "page";
+				} else {
+					if (product.getId() == 0) {
+						/*String realPath = request.getServletContext().getRealPath("/assets/images/");
+						File folderToUpload = new File(realPath);
+
+						if (!folderToUpload.exists()) {
+							folderToUpload.mkdirs();
+						}
+						MultipartFile file = product.getFile();
+						// creating the file name categoryname.jpg
+						String fileToUpload = realPath + product.getName() + ".jpg";
+
+						File destination = new File(fileToUpload);
+
+						System.out.println("file path is:" + destination.toString());
+						// transfering multipart data to destination
+						file.transferTo(destination);
+						// set the i,ageurl field od category model
+						product.setImageUrl(destination.getName());*/
+
+						if (productDAO.add(product)) {
+							model.addAttribute("success", "product added");
+
+						}
+					} else {
+						if (productDAO.update(product)) {
+							model.addAttribute("success", "product added");
+						}
+					}
+			
+			return "redirect:/product";
+		}
+		}
+		
+		@GetMapping("/admin/displayproducts")
+		@ResponseBody
+		public List<Product> allproducts() {
+			return productDAO.listProduct();
+		}
+
+		@RequestMapping(value={"/delete/{id}"})
+		public String deleteProduct(@PathVariable Integer id) {
+			productDAO.delete(id);
+			return "redirect:/product";
+		}
+		
+		@GetMapping(value = {"/showproduct/{id}"})
+		public ModelAndView getProductsById(@PathVariable("id") int id) {
+			ModelAndView mv = new ModelAndView("page");
+			mv.addObject("prd", productDAO.getProduct(id));
+			mv.addObject("userClickProduct", true);
+			return mv;
+		}
+
+
 
 	// helper to upload the file
 

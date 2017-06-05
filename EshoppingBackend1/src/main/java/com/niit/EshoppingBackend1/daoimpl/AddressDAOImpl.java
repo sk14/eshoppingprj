@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.EshoppingBackend1.dao.AddressDAO;
 import com.niit.EshoppingBackend1.dto.Address;
+import com.niit.EshoppingBackend1.dto.User;
 
 @Repository("addressDAO")
 @Transactional
@@ -22,8 +23,8 @@ public class AddressDAOImpl implements AddressDAO {
 	
 	public boolean add(Address address) {
 		try{
-			//add the category to the database table
-			sessionFactory.getCurrentSession().persist(address);
+			//add the address to the database table
+			sessionFactory.getCurrentSession().save(address);
 		    return true;	
 		}
 		catch(Exception ex)
@@ -36,7 +37,7 @@ public class AddressDAOImpl implements AddressDAO {
 
 	public boolean update(Address address) {
 		try{
-			//add the category to the database table
+			//update the address to the database table
 			sessionFactory.getCurrentSession().update(address);
 			 return true;
 		}
@@ -48,7 +49,7 @@ public class AddressDAOImpl implements AddressDAO {
 	}
 	}
 
-	public String delete(int id) {
+	/*public String delete(int id) {
 		 
 			
 			try{
@@ -62,15 +63,34 @@ public class AddressDAOImpl implements AddressDAO {
 				return "Error"+ ex;
 				
 			}
-	}
+	}*/
+	
 
 	public List<Address> list() {
-     return null;
+		return sessionFactory.getCurrentSession().createQuery("FROM Address", Address.class).getResultList();
 	}
 
 	public Address get(int addressId) {
-		// TODO Auto-generated method stub
-		return null;
+		return sessionFactory.getCurrentSession().get(Address.class, Integer.valueOf(addressId));
+
+	}
+
+	public boolean delete(Address address) {
+		try {
+			//deleting a address from database
+			sessionFactory.getCurrentSession().delete(address);
+
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
+	public Address getAddressByUser(User user) {
+		return (Address)sessionFactory.getCurrentSession().createQuery("from Address where user=:user").setParameter("user",user).getResultList().get(0);
+
 	}
 
 }

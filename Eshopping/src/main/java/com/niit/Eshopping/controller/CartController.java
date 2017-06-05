@@ -40,17 +40,18 @@ public class CartController {
 
 		if (principal != null) {
 			user = userDAO.getUserByUsername(principal.getName());
-
-			if (user.getRole().equals("admin"))
+               System.out.println("checking for the user");
+			if (user.getRole().equals("ADMIN"))
 				return "redirect:/admin/show/product";
 
 		}
 
 		model.addAttribute("title", "View Cart");
 
-		model.addAttribute("cartitemlist", (user.getCart()).getCartItems());
+		model.addAttribute("cartitemlist", (user.getCart()).getCartItem());
 
 		model.addAttribute("userClickViewCart", true);
+		
 		return "page";
 	}
 	
@@ -58,12 +59,13 @@ public class CartController {
 	public String useraddproducttocart(@PathVariable("id") int id, Principal principal, Model model) {
 
 		CartItem cartItem = null;
-
+         System.out.println("principal user "+principal.getName());
 		user = userDAO.getUserByUsername(principal.getName());
+		System.out.println("value:"+user.getEmail());
 		Cart cart = user.getCart();
 		System.out.println("cart" + cart.getId());
-		if (cart.getCartItems() != null) {
-			for (CartItem o : cart.getCartItems()) {
+		if (cart.getCartItem() != null) {
+			for (CartItem o : cart.getCartItem()) {
 				if (o.getProduct().getId() == id) {
 					System.out.println("inside loop");
 					cartItem = o;
@@ -74,7 +76,7 @@ public class CartController {
 		}
 	
 		if (cartItem == null) {
-			System.out.println("inside new cart item");
+			
 			Product product = productDAO.getById(id);
 			cartItem = new CartItem();
 			cartItem.setCart(cart);
@@ -96,30 +98,19 @@ public class CartController {
 		return "redirect:/cart/user/viewcart";
 
 	}
+	
 	@RequestMapping(value = "/user/delete/{id}")
-	public String userdeleteproductfromcart(@PathVariable("id") int id, Principal principal, Model mv) {
+	public String userdeleteproductfromcart(@PathVariable("id") int id, Model mv) {
 
-		if (principal != null) {
-			user = userDAO.getUserByUsername(principal.getName());
-
-			if (user.getRole().equals("admin"))
-				return "redirect:/admin/show/product";
-		}
-
-		Product product = null;
-
-		product = productDAO.getById(id);
-
-		CartItem cartItem = new CartItem();
-		cartItem.setId(user.getUserid());
-		cartItem.setQuantity(cartItem.getQuantity() - 1);
-		cartItem.setProduct(product);
-		cartItem.setTotalPrice(product.getPrice());
-
-		confirmDeleteCartItem(cartItem);
-		mv.addAttribute("userClickViewCart", true);
-		return "page";
+		CartItem cartItem = cartItemDAO.get(id);
+		Cart cart = cartItem.getCart();
+		cart.setCartItemsCount(cart.getCartItemsCount() - cartItem.getQuantity());
+		cart.setGrandTotal(cart.getGrandTotal() - cartItem.getTotalPrice());
+		cartDAO.update(cart);
+		cartItemDAO.delete(id);
+		return "redirect:/cart/user/viewcart";
 	}
+
 	public void confirmDeleteCartItem(CartItem cartItem) {
 		Cart existingCart = new Cart();
 
@@ -137,4 +128,5 @@ public class CartController {
 		}
 
 	}
+
 }

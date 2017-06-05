@@ -7,11 +7,13 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
 @Entity
 public class Cart implements Serializable {
 
@@ -19,6 +21,7 @@ public class Cart implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 8696961903109270296L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -26,11 +29,10 @@ public class Cart implements Serializable {
 	@OneToOne(cascade = CascadeType.PERSIST)
 	private User user;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="cart")
-	private Set<CartItem> cartItems=new HashSet<CartItem>();
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="cart", fetch=FetchType.EAGER)
+	private Set<CartItem> cartItem=new HashSet<CartItem>();
 	
 	private int cartItemsCount;
-	private int totalitemsvalue;
 	private double grandTotal;
 
 	public int getId() {
@@ -49,12 +51,12 @@ public class Cart implements Serializable {
 		this.user = user;
 	}
 
-	public Set<CartItem> getCartItems() {
-		return cartItems;
+	public Set<CartItem> getCartItem() {
+		return cartItem;
 	}
 
-	public void setCartItems(Set<CartItem> cartItems) {
-		this.cartItems = cartItems;
+	public void setCartItem(Set<CartItem> cartItem) {
+		this.cartItem = cartItem;
 	}
 
 	public int getCartItemsCount() {
@@ -72,13 +74,7 @@ public class Cart implements Serializable {
 	public void setGrandTotal(double grandTotal) {
 		this.grandTotal = grandTotal;
 	}
-	public int getTotalitemsvalue() {
-		return totalitemsvalue;
-	}
-
-	public void setTotalitemsvalue(int totalitemsvalue) {
-		this.totalitemsvalue = totalitemsvalue;
-	}
+	
 	@Override
 	public String toString() {
 		return "Cart [id=" + id + ", cartItemsCount=" + cartItemsCount + ", grandTotal=" + grandTotal + "]";

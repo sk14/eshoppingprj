@@ -14,7 +14,6 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<
 	</head>
 	<body>
 		<div class="content">
@@ -23,7 +22,7 @@
 				<!-- here the href's value will be used to decide the 
 					 controller to be executed on click of this link.
 					 here "home" is mapped in spring mvc controller-->
-				<a href="${contextRoot}/">Home</a>
+				<a href="/Eshopping">Home</a>
 				<br /><br />
 				<h2><!-- display the userId just entered -->
 				Welcome ${user.username } You have been successfully registered Click on Home to Login</h2>

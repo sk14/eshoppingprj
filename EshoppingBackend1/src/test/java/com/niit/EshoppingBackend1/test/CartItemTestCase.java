@@ -36,7 +36,7 @@ public class CartItemTestCase {
 
 	}
 	
-		@Test
+	/*	@Test
 	public void testListCartItem(){
 		
 		// get the user
@@ -50,26 +50,26 @@ public class CartItemTestCase {
 		
 		assertEquals("List CartItem fetched Successfully!",0,cartItemDAO.list().size());
 		
-	}
+	}*/
 
 	
 	// Adding a new cartItem
-/*	@Test
+	@Test
 	public void testAddCartItem() {
 		
 		// get the user
-		User user = userDAO.get(2);
+		User user = userDAO.get(1);
+		 int userid=  user.getUserid();
+		 Product product = productDAO.getById(1);
+		 System.out.println("product ID:" +product.getName());
 		// get the cart
 		Cart cart = user.getCart();
-
-		// get the product
-		Product product = productDAO.get(1);
-		
+		System.out.println("Cart ID:" +cart);
 		CartItem cartItem = new CartItem();
 		cartItem.setCart(cart);
 		cartItem.setProduct(product);
 		cartItem.setQuantity(2);
-		cartItem.setTotalPrice(product.getUnitPrice() * cartItem.getQuantity());
+		cartItem.setTotalPrice(product.getPrice() * cartItem.getQuantity());
 	
 		cart.setGrandTotal(cart.getGrandTotal() + cartItem.getTotalPrice());
 		cart.setCartItemsCount(cart.getCartItemsCount() + 1);
@@ -77,7 +77,7 @@ public class CartItemTestCase {
 		
 		
 	}
-*/	
+
 
 	// updating the existing cart item
 	/*@Test

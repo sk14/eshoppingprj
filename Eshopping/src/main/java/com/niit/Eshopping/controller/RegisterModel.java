@@ -2,9 +2,13 @@ package com.niit.Eshopping.controller;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Component;
+
 import com.niit.EshoppingBackend1.dto.Address;
+import com.niit.EshoppingBackend1.dto.Cart;
 import com.niit.EshoppingBackend1.dto.User;
 
+@Component
 public class RegisterModel implements Serializable {
 	
 	
@@ -12,13 +16,23 @@ public class RegisterModel implements Serializable {
 	
 	private User user;
 	
-	private Address billing,shipping;
+	private Address billingAddress;
+	
+	private Cart cart;
+	
 	
 	public RegisterModel(){
 		this.user=new User();
-		this.billing= new Address();
-		this.shipping= new Address();
-		//this.shipping.setBilling(false);
+		this.billingAddress= new Address();
+		
+	}
+	
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 	
 	public User getUser() {
@@ -27,22 +41,12 @@ public class RegisterModel implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public Address getBilling() {
-		return billing;
+	public Address getBillingAddress() {
+		return billingAddress;
 	}
-	public void setBilling(Address billing) {
-		this.billing = billing;
-	}
-	public Address getShipping() {
-		return shipping;
-	}
-	public void setShipping(Address shipping) {
-		this.shipping = shipping;
-	}
-	
-	
 
+	public void setBillingAddress(Address billingAddress) {
+		this.billingAddress = billingAddress;
+	}
 	
-	
-
 }

@@ -19,6 +19,8 @@
 		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
 		<!-- the id is mapped to invoke this flow -->
 		<wf:flow-location id="register" path="/memberShipFlow.xml" />
+		<wf:flow-location id="checkout" path="/checkoutFlow.xml"></wf:flow-location>
+		
 	</wf:flow-registry>
 	
 	<wf:flow-builder-services id="flowBuilderServices"

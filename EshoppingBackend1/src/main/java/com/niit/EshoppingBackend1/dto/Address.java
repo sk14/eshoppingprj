@@ -9,8 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Entity
+import org.hibernate.validator.constraints.NotEmpty;
 
+@Entity
 public class Address implements Serializable {
 
 	private static final long serialVersionUID = 4657462015039726030L;
@@ -18,17 +19,23 @@ public class Address implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int addressId;
-	private String addressLine1;
-	private String addressLine2;
-	private String city;
-	private String state;
-	private String country;
-	private boolean shipping;
 	
+	@NotEmpty(message="AddressLine1 cannot be empty")
+	private String addressLine1;
+	@NotEmpty(message="AddressLine2 cannot be empty")
+	private String addressLine2;
+	@NotEmpty(message="City cannot be empty")
+	private String city;
+	@NotEmpty(message="State cannot be empty")
+	private String state;
+	@NotEmpty(message="Country cannot be empty")
+	private String country;
+	//private boolean shipping;
 	
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	private User user;
+	
 	
 	public User getUser() {
 		return user;
@@ -72,12 +79,13 @@ public class Address implements Serializable {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	/*
 	public boolean isShipping() {
 		return shipping;
 	}
 	public void setShipping(boolean shipping) {
 		this.shipping = shipping;
-	}
+	}*/
 	
 	
 }
