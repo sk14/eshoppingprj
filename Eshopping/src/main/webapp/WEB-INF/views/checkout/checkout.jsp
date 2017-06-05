@@ -28,7 +28,7 @@
 		<div>
 
 			<form:form modelAttribute="cartModel" class="form-horizontal" method="post">
-				<c:forEach items="${cartModel.user}" var="adr">
+				<c:forEach items="${cartModel.user.address}" var="adr">
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="billingAddress">Address</label>
 						<div class="col-sm-10 displayinfo">${adr.username}</div>
