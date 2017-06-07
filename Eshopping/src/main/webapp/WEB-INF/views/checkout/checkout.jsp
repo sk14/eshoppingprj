@@ -33,7 +33,7 @@
 						<label class="control-label col-sm-2" for="billingAddress">Address</label>
 						<div class="col-sm-10 displayinfo">${adr.username}</div>
 					</div>
-					<!--  
+					  
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="city">City</label>
 						<div class="col-sm-10 displayinfo">${adr.city}</div>
@@ -52,7 +52,7 @@
 						<form:radiobutton path="addressid" value="${adr.addressId}"/>
 						<c:out value="${adr.addressId}"/>
 					</div>
-				</div>    -->
+				</div> 
 				</c:forEach>
 	
 				<div class="form-group">
