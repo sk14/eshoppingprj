@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.stereotype.Component;
+
 import com.niit.EshoppingBackend1.dto.Address;
 import com.niit.EshoppingBackend1.dto.Cart;
 import com.niit.EshoppingBackend1.dto.CartItem;
@@ -11,7 +13,7 @@ import com.niit.EshoppingBackend1.dto.OrderItem;
 import com.niit.EshoppingBackend1.dto.Orders;
 import com.niit.EshoppingBackend1.dto.User;
 
-
+@Component
 public class CartModel implements Serializable
  {
 	/**

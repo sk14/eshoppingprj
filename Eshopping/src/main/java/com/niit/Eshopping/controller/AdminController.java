@@ -139,41 +139,23 @@ public class AdminController {
 					model.addAttribute("product", product);
 					model.addAttribute("userClickProduct", true);
 					return "page";
-				} else {
+				} 
+				else {
 					if (product.getId() == 0) {
-						/*String realPath = request.getServletContext().getRealPath("/assets/images/");
-						File folderToUpload = new File(realPath);
-
-						if (!folderToUpload.exists()) {
-							folderToUpload.mkdirs();
-						}
-						MultipartFile file = product.getFile();
-						// creating the file name categoryname.jpg
-						String fileToUpload = realPath + product.getName() + ".jpg";
-
-						File destination = new File(fileToUpload);
-
-						System.out.println("file path is:" + destination.toString());
-						// transfering multipart data to destination
-						file.transferTo(destination);
-						// set the i,ageurl field od category model
-						product.setImageUrl(destination.getName());*/
-
-						if (productDAO.add(product)) {
+						if(productDAO.add(product)){
+						System.out.println("inside add product");
 							model.addAttribute("success", "product added");
-
 						}
 					} else {
 						if (productDAO.update(product)) {
-							model.addAttribute("success", "product added");
+							model.addAttribute("success", "product update");
 						}
 					}
-			
-			return "redirect:/product";
+			return "redirect:/admin/admin/Products";
 		}
 		}
 		
-		@GetMapping("/admin/displayproducts")
+		@GetMapping(value={"/admin/displayproducts"})
 		@ResponseBody
 		public List<Product> allproducts() {
 			return productDAO.listProduct();
@@ -193,8 +175,6 @@ public class AdminController {
 			return mv;
 		}
 
-
-
 	// helper to upload the file
 
 	/*
@@ -212,5 +192,4 @@ public class AdminController {
 	 * multipartFile.transferTo(destinstion); } catch(Exception e){} return
 	 * filename; }
 	 */
-
 }

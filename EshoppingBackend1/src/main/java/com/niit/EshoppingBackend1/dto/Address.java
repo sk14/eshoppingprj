@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+
 @Entity
 public class Address implements Serializable {
 

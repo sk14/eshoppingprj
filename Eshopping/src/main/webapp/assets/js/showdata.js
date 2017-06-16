@@ -19,7 +19,7 @@
 								{
 									data : null,
 									mRender : function(data, type, row) {
-										return '<img src="Eshopping/assets/images'
+										return '<img src="Eshopping/resources/images'
 												+ data
 												+ '.jpg" height="170px" width="190px">';
 									}

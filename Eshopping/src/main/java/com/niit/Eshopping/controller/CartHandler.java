@@ -51,10 +51,14 @@ public class CartHandler {
 		CartModel cartModel = new CartModel();
 		
 		Principal prnc = request.getUserPrincipal();
+		System.out.println("P User............... "+ prnc);
 		User user = userDAO.getUserByUsername(prnc.getName());
 		cartModel.setUser(user);
 		cartModel.setCart(user.getCart());
 		cartModel.setCartItemList((user.getCart()).getCartItem());
+		Address address=addressDAO.getAddressByUser(user);
+		System.out.println("Address\t:"+address);
+		cartModel.setAddress(address);
 		return cartModel;
 	}
 
@@ -65,15 +69,18 @@ public class CartHandler {
 
 	}
 	
-	public void setShippingAddress(CartModel checkoutModel, int addressid)
+	public void setShippingAddress(CartModel checkoutModel)
 	{
-		System.out.println("shipping address id"+addressid);
+		//System.out.println("shipping address id"+addressid);
 
-		Address address=addressDAO.get(checkoutModel.getAddressid());
-		checkoutModel.setAddress(address);	
+		//Address address=addressDAO.get(checkoutModel.getAddressid());
+		//checkoutModel.setAddress(address);
+		User user=checkoutModel.getUser();
+		Address address=addressDAO.getAddressByUser(user);
+		checkoutModel.setAddress(address);
+		
 		System.out.println("Shipping Address");
 		System.out.println(checkoutModel.getAddressid());
-
 	}
 	
 	public String saveOrder(CartModel cartModel) {

@@ -1,14 +1,9 @@
 <div class="container">
 	<div class="row">
 
-
 		<!-- To display the sidebar -->
 		<div class="col-md-3">
-
-
 			<%@include file="./shared/sidebar.jsp"%>
-
-
 		</div>
 
 		<!-- To display the actual products -->
@@ -30,8 +25,6 @@
 							<li><a href="${contextRoot}/home">Home</a></li>
 							<li class="active">Category</li>
 							<li class="active">${category.name}</li>
-
-
 						</ol>
 					</c:if>
 				</div>

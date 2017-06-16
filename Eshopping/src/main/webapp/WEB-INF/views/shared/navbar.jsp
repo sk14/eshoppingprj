@@ -30,7 +30,7 @@
 				
 				<security:authorize access="hasAuthority('ADMIN')">
 				
-				<li class="dropdown" id="adminProduct">
+			<!-- 	<li class="dropdown" id="adminProduct">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="${contextRoot}/admin">Admin
                          <span class="caret"></span></a>
                           <ul class="dropdown-menu">
@@ -39,17 +39,20 @@
                            
                           </ul>
                       </li>
-                    
+                     -->
+                     <li><a href="${contextRoot}/admin">Category</a></li>
+						<li><a	href="${contextRoot}/admin/admin/Products">Product</a></li>
+                     
 				
 				</security:authorize>
 				
 				<ul class="nav navbar-nav navbar-right">
 				
+				<security:authorize access="isAnonymous()">
 					<li id="register"><a href="${contextRoot}/register"><span
 							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-							<security:authorize access="isAnonymous()">
 							
-					<li><a href="${contextRoot}/login"><span
+					<li id="login"><a href="${contextRoot}/login"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
 							</security:authorize>
 							

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isELIgnored="false"%>
 <html>
 	<head>
@@ -24,7 +24,7 @@
 		<div>
 			<form:form modelAttribute="address" class="form-horizontal" method="post">
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="shippingAddress">Address :</label>
+					<label class="control-label col-sm-2" for="shippingAddress">AddressLine1 :</label>
 					<div class="col-sm-10">
 						<form:input type="text" path="addressLine1" class="form-control" id="saddress"/>
 						<div class="has-error">
@@ -32,7 +32,15 @@
 						</div>
 					</div>
 				</div>
-				
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="shippingAddress">AddressLine2 :</label>
+					<div class="col-sm-10">
+						<form:input type="text" path="addressLine2" class="form-control" id="ssaddress"/>
+						<div class="has-error">
+							<form:errors path="addressLine2" class="help-inline" />
+						</div>
+					</div>
+				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="state">State</label>
 					<div class="col-sm-10">

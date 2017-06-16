@@ -24,12 +24,13 @@ public class ProductDAOImpl implements ProductDAO {
 	
 
 	public List<Product> listProduct() {
-String selectActiveProduct = "FROM Product WHERE active = :active";
+    /** String selectActiveProduct = "FROM Product WHERE active = :active";
 		
 		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveProduct);
 		
 		query.setParameter("active", true);
-		return query.getResultList();
+		return query.getResultList();*/
+		return sessionFactory.getCurrentSession().createQuery("FROM Product", Product.class).getResultList();
 	}
 
 	public Product getById(int id) {
@@ -44,6 +45,7 @@ String selectActiveProduct = "FROM Product WHERE active = :active";
 		}
 		catch(Exception ex)
 		{
+			System.out.println("exception :"+ex);
 			ex.printStackTrace();
 			return false;
 			
